@@ -1,48 +1,31 @@
-/* CSS 스타일 - Google Design 스타일 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.8;
+}
+.hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.section-gradient {
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+}
+.tropical-gradient {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.culture-gradient {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+.card-shadow {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.image-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
 }
 
-:root {
-    --primary: #1a73e8;
-    --secondary: #4285f4;
-    --accent: #fbbc05;
-    --background: #ffffff;
-    --text: #202124;
-    --text-secondary: #5f6368;
-    --surface: #f8f9fa;
-    --border: #dadce0;
-    --border-radius: 8px;
-    --box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    --transition: all 0.2s ease;
-    --container-width: 1200px;
-    --spacing-xs: 8px;
-    --spacing-sm: 16px;
-    --spacing-md: 24px;
-    --spacing-lg: 32px;
-    --spacing-xl: 48px;
-    --spacing-xxl: 64px;
-}
-
-/* 애니메이션 효과 */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* 페이드인 애니메이션 관련 스타일 */
 .fade-in-section {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    will-change: opacity, transform;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in-section.is-visible {
@@ -52,323 +35,17 @@
 
 .stagger-item {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: calc(var(--item-index, 0) * 0.1s);
 }
 
 .stagger-item.is-visible {
-    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.stagger-delay-1 { animation-delay: 0.1s; }
-.stagger-delay-2 { animation-delay: 0.2s; }
-.stagger-delay-3 { animation-delay: 0.3s; }
-.stagger-delay-4 { animation-delay: 0.4s; }
-.stagger-delay-5 { animation-delay: 0.5s; }
-
-body {
-    font-family: 'Google Sans', 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background-color: var(--background);
-}
-
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-header {
-    background-color: var(--background);
-    color: var(--text);
-    padding: var(--spacing-lg) 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    padding: var(--spacing-sm) 0;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-nav ul li a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.25px;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-nav ul li a:hover {
-    background-color: var(--surface);
-    color: var(--primary);
-}
-
-section {
-    padding: var(--spacing-xxl) var(--spacing-md);
-    max-width: var(--container-width);
-    margin: 0 auto;
-    margin-bottom: var(--spacing-xxl);
-}
-
-h1, h2, h3 {
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: var(--text);
-}
-
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.3;
-}
-
-h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text);
-}
-
-p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-/* 플렉스박스 레이아웃 사용 */
-.overview-content {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xxl);
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.flag-container {
-    flex: 0 0 350px;
-    transition: var(--transition);
-}
-
-.flag-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-}
-
-.description {
-    flex: 1 1 500px;
-    padding: var(--spacing-lg);
-}
-
-.description p {
-    font-size: 1.1rem;
-    max-width: 65ch;
-}
-
-#location {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#location h2 {
-    align-self: center;
-}
-
-#location img {
-    border-radius: var(--border-radius);
-    margin: var(--spacing-xl) auto;
-    display: block;
-    max-width: 75%;
-    transition: var(--transition);
-}
-
-.city-list {
-    margin: var(--spacing-lg) 0;
-    padding-left: var(--spacing-lg);
-    max-width: 600px;
-    align-self: center;
-}
-
-.city-list li {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-}
-
-.culture-list {
-    list-style-type: none;
-    margin: var(--spacing-xl) 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.culture-list li {
-    padding: var(--spacing-lg);
-    background-color: var(--surface);
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    height: 100%;
-}
-
-.culture-list li:hover {
-    box-shadow: var(--box-shadow);
-    transform: translateY(-4px);
-}
-
-.culture-list h3 {
-    text-align: left;
-    margin-top: 0;
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
-    color: var(--primary);
-}
-
-.culture-list p {
-    margin-bottom: 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: var(--spacing-xl) 0;
-    font-size: 1rem;
-}
-
-th, td {
-    padding: var(--spacing-md);
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-}
-
-th {
-    font-weight: 500;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.5px;
-}
-
-td {
-    font-size: 1rem;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    margin: var(--spacing-xl) 0;
-}
-
-.gallery img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.gallery img:hover {
-    transform: scale(1.03);
-    box-shadow: var(--box-shadow);
-}
-
-#contact {
-    text-align: center;
-    padding: var(--spacing-xxl) var(--spacing-md);
-    background-color: var(--surface);
-    margin-top: var(--spacing-xxl);
-    border-radius: var(--border-radius);
-}
-
-#contact p {
-    max-width: 600px;
-    margin: 0 auto var(--spacing-lg);
-    font-size: 1.1rem;
-}
-
-#contact a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    padding: var(--spacing-xl) 0;
-    margin-top: var(--spacing-xxl);
-    text-align: center;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* 모바일 대응 */
-@media (max-width: 768px) {
-    :root {
-        --spacing-xxl: 48px;
-        --spacing-xl: 32px;
-    }
-    
-    section {
-        padding: var(--spacing-xl) var(--spacing-sm);
-        margin-bottom: var(--spacing-xl);
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    #location img {
-        max-width: 100%;
-    }
-    
-    .overview-content {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-    }
-    
-    .description {
-        padding: var(--spacing-md) 0;
-    }
-    
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav ul li {
-        margin: var(--spacing-xs) var(--spacing-xs);
-    }
+/* 스크롤 동작 부드럽게 */
+html {
+    scroll-behavior: smooth;
 }
