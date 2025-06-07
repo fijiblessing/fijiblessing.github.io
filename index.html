@@ -52,6 +52,43 @@
             scroll-behavior: smooth;
         }
         
+        /* 네비게이션 호버 효과 */
+        .nav-link {
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4A90E2;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #4A90E2;
+            font-weight: 600;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* 언어 선택 버튼 호버 효과 */
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
+        
         @media print {
             .print-break {
                 break-inside: avoid;
@@ -75,18 +112,18 @@
                 </button>
                 
                 <!-- 데스크톱 네비게이션 -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#hero" class="text-gray-700 hover:text-sky transition duration-300">홈</a>
-                    <a href="#mission" class="text-gray-700 hover:text-sky transition duration-300">선교 사역</a>
-                    <a href="#churches" class="text-gray-700 hover:text-sky transition duration-300">후원 교회</a>
-                    <a href="#location" class="text-gray-700 hover:text-sky transition duration-300">선교 지역</a>
-                    <a href="#gallery" class="text-gray-700 hover:text-sky transition duration-300">갤러리</a>
-                    <a href="#contact" class="text-gray-700 hover:text-sky transition duration-300">문의하기</a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#hero" class="nav-link text-gray-700 text-lg font-medium">홈</a>
+                    <a href="#mission" class="nav-link text-gray-700 text-lg font-medium">선교 사역</a>
+                    <a href="#churches" class="nav-link text-gray-700 text-lg font-medium">후원 교회</a>
+                    <a href="#location" class="nav-link text-gray-700 text-lg font-medium">선교 지역</a>
+                    <a href="#gallery" class="nav-link text-gray-700 text-lg font-medium">갤러리</a>
+                    <a href="#contact" class="nav-link text-gray-700 text-lg font-medium">문의하기</a>
                 </nav>
                 
-                <div class="hidden md:flex items-center space-x-2">
-                    <button id="lang-ko" class="px-3 py-1 bg-sky text-white rounded">KO</button>
-                    <button id="lang-en" class="px-3 py-1 border border-sky text-sky rounded">EN</button>
+                <div class="hidden md:flex items-center space-x-3">
+                    <button id="lang-ko" class="lang-btn px-4 py-2 bg-sky text-white rounded-lg text-lg font-medium">KO</button>
+                    <button id="lang-en" class="lang-btn px-4 py-2 border-2 border-sky text-sky rounded-lg text-lg font-medium hover:bg-sky">EN</button>
                 </div>
             </div>
             
@@ -482,22 +519,6 @@
                 <div class="overflow-hidden rounded-lg shadow-lg gallery-item hidden">
                     <img src="https://www.travelnbike.com/news/photo/201508/8576_10969_5238.jpg" alt="피지 자연 풍경" class="w-full h-64 object-cover gallery-img">
                 </div>
-
-                <div class="overflow-hidden rounded-lg shadow-lg gallery-item hidden">
-                    <img src="https://www.travelnbike.com/news/photo/201508/8576_10969_5238.jpg" alt="피지 자연 풍경" class="w-full h-64 object-cover gallery-img">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-lg gallery-item hidden">
-                    <img src="https://www.travelnbike.com/news/photo/201508/8576_10969_5238.jpg" alt="피지 자연 풍경" class="w-full h-64 object-cover gallery-img">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-lg gallery-item hidden">
-                    <img src="https://www.travelnbike.com/news/photo/201508/8576_10969_5238.jpg" alt="피지 자연 풍경" class="w-full h-64 object-cover gallery-img">
-                </div>
-
-                <div class="overflow-hidden rounded-lg shadow-lg gallery-item hidden">
-                    <img src="https://www.travelnbike.com/news/photo/201508/8576_10969_5238.jpg" alt="피지 자연 풍경" class="w-full h-64 object-cover gallery-img">
-                </div>
             </div>
             
             <div class="text-center mt-12">
@@ -584,10 +605,10 @@
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <h3 class="text-2xl font-bold mb-4">피지 블레싱 (Fiji Blessing)</h3>
-                <p class="text-blue-100 mb-6 lang-ko">
+                <p class="text-white mb-6 lang-ko">
                     피지의 작은 마을들에 하나님의 사랑을 전하며, 염소 나눔을 통해 지속 가능한 변화를 만들어갑니다.
                 </p>
-                <p class="text-blue-100 mb-6 lang-en hidden-lang">
+                <p class="text-white mb-6 lang-en hidden-lang">
                     We spread God's love to small villages in Fiji and create sustainable change through goat sharing.
                 </p>
                 
@@ -598,7 +619,7 @@
                     <i class="fab fa-instagram text-2xl hover:text-blue-200 cursor-pointer"></i>
                 </div>
                 
-                <p class="text-blue-200 text-sm">
+                <p class="text-white text-sm font-medium">
                     © 2024 Fiji Blessing. All rights reserved.
                 </p>
             </div>
